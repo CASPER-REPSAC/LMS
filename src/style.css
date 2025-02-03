@@ -1,0 +1,36 @@
+.progress_bar {
+    height: .5rem;
+    width: 0%;
+    position: fixed;
+    background-color: #e23e3e;
+}
+
+/* https://www.youtube.com/shorts/SNVFH6ry8b4 */
+.navbar {
+    position: sticky;
+    top: 0;
+}
+
+/* https://www.youtube.com/shorts/rrSanpPUS80 */
+table { 
+    width: 100%;
+    table-layout: auto;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-git, minmax(250px, 1fr));
+    grid-gap: 10px;
+}
+
+@media only screen and (max-width:600px) {
+
+}
+
+@media only screen and (min-width:600px) and (max-width: 900px) {
+
+}
+
+@media only screen and (min-width:900px) {
+
+}

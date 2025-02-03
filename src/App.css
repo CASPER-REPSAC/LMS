@@ -45,3 +45,69 @@
 .Menu a:hover {
   text-decoration: underline;
 }
+
+/* https://www.youtube.com/watch?v=5UirsdFgNq0&list=LL&index=14 */
+button, html input[type = button],
+input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled], html input[disabled] {
+  cursor: default;
+}
+
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing:content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner{
+
+}
+
+/* done */
+
+/* https://www.youtube.com/watch?v=6rbaZTEDiV8&list=LL&index=16 */
+.container{
+  display: grid;
+  grid-template-rows: 80px auto 1fr auto 50px;
+  grid-template-columns: 1fr 4fr 1fr;
+  height: 100vh;
+  grid-template-areas: 
+      "header     header      header"
+      "left-aside banner      right-aside"
+      "left-aside main        right-aside"
+      "left-aside low-content right-aside"
+      "footer     footer      footer";
+  grid-gap: 10px; padding: 10px;
+  font-weight: 600; font-size: 20px;
+}
+
+@media (max-width: 670px) {
+  .container {
+    grid-template-rows: 50px 50px 50px 1fr 50px 50px 50px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "header"
+      "banner"
+      "left-aside"
+      "main"
+      "right-aside"
+      "low-content"
+      "footer";
+  }
+}
+/* done */

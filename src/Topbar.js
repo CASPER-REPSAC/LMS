@@ -14,6 +14,7 @@ function Topbar() {
             <Link to="/New_Account">회원가입</Link>
         </div>
       </nav>
+      <div id="progress_bar" class="progress_bar"></div>
     </div>
   );
 }

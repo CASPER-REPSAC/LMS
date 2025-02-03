@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+/* 다이얼로그 동작처리 */
+dialog {
+  translate : 0 60px;
+  transition: translate 1s, disaplay 0.5s allow-discrete, overlay 0.5s allow-discrete;
+  
+  &[open] {
+    translate : 0 0;
+  }
+}
+
+/* 다이얼로그 동작처리2 */
+@starting-style {
+  dialog[open] {
+    translate: 0 - 60px;
+    opacity: 0;
+  }
+}
+
+
+/* 글자크기 동적처리 */
+.container {
+  container: inline-size;
+
+  h2 {
+    font-size: clamp(1.125rem, 6cpi, 3rem);
+  }
+
+  p {
+    font-size: clamp(0.825rem, 4cqi, 1.25rem);
+  }
+}
