@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+  min-height: 100vh; /* 콘텐츠가 보이도록 최소 높이 설정 */
+}
+
+.content {
+  padding: 20px;
+  margin-top: 60px; /* Topbar가 고정일 경우 콘텐츠와 겹치지 않게 여백 추가 */
+}
+
+
+.App-header {
+  background-color: white;
+  height: 20vh;
+}
+
+.App-body {
+  padding: 20px;
+}
+
+.Topbar_body{
+  height: 20vh;
+}
+
+.Menu {
+  background-color: gray;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo{
+  text-align: left;
+}
+
+#Menu_item{
+  text-align: right;
+}
+
+.Menu a {
+  color: white;
+  margin: 0 15px;
+}
+
+.Menu a:hover {
+  text-decoration: underline;
+}

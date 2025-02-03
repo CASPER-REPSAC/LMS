@@ -1,0 +1,13 @@
+.login_body{
+    display: flex;
+    text-align: center;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.login_box{
+    background-color: gray;
+    border-radius: 2dvh;
+    height: 60vh;
+    width: 50vh;
+}
