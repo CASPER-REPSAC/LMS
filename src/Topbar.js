@@ -18,8 +18,8 @@ function Topbar() {
           </select>
           <img src={search_img} alt="search_img" />
         </div>
-        <div className="profile">
-          <p>프로필 예정</p>
+        <div id='Menu_item'>
+            <Link to="/Profile">profile</Link>
         </div>
       </nav>
     </div>

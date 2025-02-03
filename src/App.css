@@ -133,6 +133,8 @@ button::-moz-focus-inner, input::-moz-focus-inner{
 
 /* done */
 
+
+/* 화면 크기 동적 변경 */
 /* https://www.youtube.com/watch?v=6rbaZTEDiV8&list=LL&index=16 */
 .container{
   display: grid;
