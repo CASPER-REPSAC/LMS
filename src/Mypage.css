@@ -99,7 +99,15 @@ table {
   background-color: #e23e3e;
 }
 
+
+
 /* written by GPT */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Arial', sans-serif;
+}
+
 .custom-table {
   width: 100%;
   border-collapse: collapse;
@@ -108,23 +116,25 @@ table {
 
 .custom-table th,
 .custom-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   padding: 8px;
   text-align: left;
 }
 
 .custom-table th {
-  background-color: #f4f4f4;
+  background-color: #333;
+  color: #e0e0e0;
   font-weight: bold;
 }
 
 .custom-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #1e1e1e;
 }
 
 .tab-button {
   padding: 8px 16px;
-  background-color: #e0e0e0;
+  background-color: #333;
+  color: #e0e0e0;
   border: none;
   cursor: pointer;
   border-radius: 4px;
@@ -137,7 +147,12 @@ table {
 }
 
 .tab-button:hover:not(.active) {
-  background-color: #d0d0d0;
+  background-color: #555;
+}
+
+.tab-button:disabled {
+  background-color: #444;
+  cursor: not-allowed;
 }
 
 .action-button {
@@ -153,3 +168,4 @@ table {
 .action-button:hover {
   background-color: #0056b3;
 }
+

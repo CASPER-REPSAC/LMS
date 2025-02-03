@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import Login from './account/login.js'
-import Account from './account/new_account.js'
 import Profile from './Mypage.js'
 import Main from './main.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; // 추가
