@@ -1,26 +1,58 @@
 import { useState } from "react";
-import AL_Start from './image/AI_start.jpg';
 import "./Mypage.css"; // Assuming styles are defined in this CSS file
+
+const PAGE_SIZE = 10;
 
 function Mypage() {
   const [activeTab, setActiveTab] = useState("borrow");
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const borrowData = [
+    { title: "The Great Gatsby", author: "F. Scott Fitzgerald", date: "2025-01-01" },
+    { title: "1984", author: "George Orwell", date: "2025-01-10" },
+    // Add more mock data as needed
+  ];
+
+  const returnData = [
+    { title: "To Kill a Mockingbird", date: "2025-01-15", condition: "Good" },
+    { title: "Pride and Prejudice", date: "2025-01-20", condition: "Fair" },
+    // Add more mock data as needed
+  ];
+
+  const paginatedData = (data) => {
+    const startIndex = currentPage * PAGE_SIZE;
+    return data.slice(startIndex, startIndex + PAGE_SIZE);
+  };
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
+    setCurrentPage(0);
+  };
+
+  const handleNextPage = () => {
+    if ((currentPage + 1) * PAGE_SIZE < (activeTab === "borrow" ? borrowData.length : returnData.length)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 text-gray-200 bg-gray-900 min-h-screen">
       {/* Profile Section */}
       <div className="flex items-center space-x-4 mb-6">
         <img
-          src= {AL_Start}
+          src="https://via.placeholder.com/80"
           alt="Profile"
           className="w-20 h-20 rounded-full object-cover"
         />
         <div>
           <h2 className="text-xl font-bold">John Doe</h2>
-          <p className="text-gray-600">Avid reader and book enthusiast</p>
+          <p className="text-gray-400">Avid reader and book enthusiast</p>
         </div>
       </div>
 
@@ -53,18 +85,14 @@ function Mypage() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>The Great Gatsby</td>
-                <td>F. Scott Fitzgerald</td>
-                <td>2025-01-01</td>
-                <td><button className="action-button">반납하기</button></td>
-              </tr>
-              <tr>
-                <td>1984</td>
-                <td>George Orwell</td>
-                <td>2025-01-10</td>
-                <td><button className="action-button">반납하기</button></td>
-              </tr>
+              {paginatedData(borrowData).map((book, index) => (
+                <tr key={index}>
+                  <td>{book.title}</td>
+                  <td>{book.author}</td>
+                  <td>{book.date}</td>
+                  <td><button className="action-button">반납하기</button></td>
+                </tr>
+              ))}
             </tbody>
           </table>
         ) : (
@@ -72,27 +100,35 @@ function Mypage() {
             <thead>
               <tr>
                 <th>Book Title</th>
-                <th>Author</th>
-                <th>Borrow Date</th>
                 <th>Return Date</th>
+                <th>Condition</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>To Kill a Mockingbird</td>
-                <td>F. Scott Fitzgerald</td>
-                <td>2025-01-01</td>
-                <td>2025-01-01</td>
-              </tr>
-              <tr>
-                <td>Pride and Prejudice</td>
-                <td>George Orwell</td>
-                <td>2025-01-10</td>
-                <td>2025-01-10</td>
-              </tr>
+              {paginatedData(returnData).map((book, index) => (
+                <tr key={index}>
+                  <td>{book.title}</td>
+                  <td>{book.date}</td>
+                  <td>{book.condition}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         )}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-between mt-4">
+        <button className="tab-button" onClick={handlePreviousPage} disabled={currentPage === 0}>
+          이전 페이지
+        </button>
+        <button
+          className="tab-button"
+          onClick={handleNextPage}
+          disabled={(currentPage + 1) * PAGE_SIZE >= (activeTab === "borrow" ? borrowData.length : returnData.length)}
+        >
+          다음 페이지
+        </button>
       </div>
     </div>
   );
