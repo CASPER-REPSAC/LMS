@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+  
+
+/* 다이얼로그 동작처리 */
+dialog {
+  translate : 0 60px;
+  transition: translate 1s, disaplay 0.5s allow-discrete, overlay 0.5s allow-discrete;
+  
+  &[open] {
+    translate : 0 0;
+  }
+}
+
+/* 다이얼로그 동작처리2 */
+@starting-style {
+  dialog[open] {
+    translate: 0 - 60px;
+    opacity: 0;
+  }
+}
+
+
+/* 글자크기 동적처리 */
+.container {
+  container: inline-size;
+  h2 {
+    font-size: clamp(1.125rem, 6cpi, 3rem);
+  }
+
+  p {
+    font-size: clamp(0.825rem, 4cqi, 1.25rem);
+  }
+}
+  
+/* 화면 크기 동적 변경 */
+/* https://www.youtube.com/watch?v=6rbaZTEDiV8&list=LL&index=16 */
+.container{
+    display: grid;
+    grid-template-rows: 80px auto 1fr auto 50px;
+    grid-template-columns: 1fr 4fr 1fr;
+    height: 100vh;
+    grid-template-areas: 
+        "header     header      header"
+        "left-aside banner      right-aside"
+        "left-aside main        right-aside"
+        "left-aside low-content right-aside"
+        "footer     footer      footer";
+    grid-gap: 10px; padding: 10px;
+    font-weight: 600; font-size: 20px;
+}
+
+@media (max-width: 670px) {
+    .container {
+        grid-template-rows: 50px 50px 50px 1fr 50px 50px 50px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "banner"
+        "left-aside"
+        "main"
+        "right-aside"
+        "low-content"
+        "footer";
+    }
+}
+/* done */
+
+
+/* https://www.youtube.com/shorts/SNVFH6ry8b4
+.navbar {
+  position: sticky;
+  top: 0;
+} */
+
+/* 동적 테이블 조정 */
+/* https://www.youtube.com/shorts/rrSanpPUS80 */
+table { 
+  width: 100%;
+  table-layout: auto;
+}
+
+/* https://www.youtube.com/watch?v=agNAcC89tKg&list=LL&index=11 */
+.progress_bar {
+  height: .5rem;
+  width: 0%;
+  position: fixed;
+  background-color: #e23e3e;
+}
+
+/* written by GPT */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tab-button {
+  padding: 8px 16px;
+  background-color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.tab-button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.tab-button:hover:not(.active) {
+  background-color: #d0d0d0;
+}
+
+.action-button {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
