@@ -142,7 +142,6 @@ button::-moz-focus-inner, input::-moz-focus-inner{
 
 
 /* 화면 크기 동적 변경 */
-/* https://www.youtube.com/watch?v=6rbaZTEDiV8&list=LL&index=16 */
 .container{
   display: grid;
   grid-template-rows: 80px auto 1fr auto 50px;
@@ -176,7 +175,7 @@ button::-moz-focus-inner, input::-moz-focus-inner{
 
 .carousel-container {
   width: 100%;
-  height: 600px;
+  height: 630px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -197,16 +196,36 @@ button::-moz-focus-inner, input::-moz-focus-inner{
   position: absolute;
   width: 300px; /* 이미지의 가로 크기 */
   height: 500px; /* 이미지의 세로 크기 */
-  top: -30px;
+  top: 0;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
+.carousel-caption {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* 📌 비슷한 느낌의 기본 폰트 */
+  font-family: "Arial Black", "Impact", sans-serif;
+  font-size: 24px; /* 크게 */
+  font-weight: 900; /* 두껍게 */
+  letter-spacing: 2px; /* 글자 간격 조금 넓게 */ 
+
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
 .carousel-item img {
-  width: 130%;
-  height: 130%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
+
 /* 버튼 스타일 */
 .prev-button, .next-button {
   position: absolute;

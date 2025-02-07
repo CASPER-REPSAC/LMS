@@ -19,8 +19,6 @@ function App() {
         <main className="App-body">
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/New_Account" element={<Account />} />
             <Route path='/Profile' element={<Profile />} />
           </Routes>
         </main>
