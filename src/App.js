@@ -3,7 +3,9 @@ import Profile from './Mypage.js'
 import Main from './main.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; // 추가
 import './App.css';
-import Topbar from './Topbar';
+import Topbar from './Topbar.js';
+import Search from './searchpage.js';
+import BookContent from './Item/Bookcontent.js';
 
 function App() {
   useEffect(() => {
@@ -20,6 +22,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path='/Profile' element={<Profile />} />
+            <Route path='/Search' element={<Search/>}/>
+            <Route path='/Content' element={<BookContent/>}/>
           </Routes>
         </main>
       </div>

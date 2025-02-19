@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ 페이지 이동을 위한 useNavigate 추가
 import "./App.css";
 import AI from "./image/AI_start.jpg";
 import CV from "./image/open_CV.jpg";
@@ -20,7 +21,8 @@ const images_name = [
 ];
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(3); // 중앙에 위치할 초기 인덱스 설정
+  const [currentIndex, setCurrentIndex] = useState(3);
+  const navigate = useNavigate(); // ✅ 페이지 이동을 위한 useNavigate
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -37,6 +39,18 @@ const Carousel = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleImageClick = () => {
+    const bookTitle = images_name[currentIndex];
+    const bookImage = images[currentIndex];
+  
+    // ✅ 이미지 URL을 Base64로 인코딩하여 전달
+    const encodedImage = btoa(bookImage); 
+  
+    navigate(
+      `/Content?title=${encodeURIComponent(bookTitle)}&image=${encodedImage}`
+    );
+  };
+  
   return (
     <div className="carousel-container">
       <div
@@ -55,13 +69,11 @@ const Carousel = () => {
           let translateX, scale, opacity, zIndex;
 
           if (distance === 0) {
-            // 가운데 이미지
             translateX = 0;
             scale = 1;
             opacity = 1;
             zIndex = 3;
           } else if (distance === 1 || distance === images.length - 1) {
-            // 양쪽 첫번째 이미지
             translateX = distance === 1 ? 150 : -150;
             scale = 0.8;
             opacity = 0.9;
@@ -72,7 +84,6 @@ const Carousel = () => {
             opacity = 0.6;
             zIndex = 1;
           } else {
-            // 숨겨진 이미지
             translateX = 0;
             scale = 0.4;
             opacity = 0;
@@ -92,7 +103,9 @@ const Carousel = () => {
                 width: "220px",
                 height: "330px",
                 textAlign: "center",
+                cursor: distance === 0 ? "pointer" : "default" // ✅ 가운데 이미지만 클릭 가능하게 설정
               }}
+              onClick={distance === 0 ? handleImageClick : null} // ✅ 가운데 이미지 클릭 시만 이동
             >
               <img src={src} alt={images_name[idx]} />
             </div>
@@ -100,7 +113,6 @@ const Carousel = () => {
         })}
       </div>
 
-      {/* ✅ 가운데 이미지의 이름을 고정된 위치에 표시 */}
       <div className="carousel-caption">
         <p>{images_name[currentIndex]}</p>
       </div>

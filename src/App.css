@@ -208,7 +208,7 @@ button::-moz-focus-inner, input::-moz-focus-inner{
   
   /* 📌 비슷한 느낌의 기본 폰트 */
   font-family: "Arial Black", "Impact", sans-serif;
-  font-size: 24px; /* 크게 */
+  font-size: 20px; /* 크게 */
   font-weight: 900; /* 두껍게 */
   letter-spacing: 2px; /* 글자 간격 조금 넓게 */ 
 
